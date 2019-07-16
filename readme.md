@@ -10,7 +10,16 @@ Container Path: /owi2plex <> /mnt/user/appdata/owi2plex/ \
 Container Path: /TVH <> /mnt/user/appdata/tvheadend/data/ << not needed if no TVHeadend is used \
 while /mnt/user/appdata/ should fit to your system path ...
 
-- docker run -d --name='owi2plex' --net='bridge' --log-opt max-size='10m' --log-opt max-file='3' -e TZ="Europe/Berlin" -e HOST_OS="Unraid" -v '/mnt/user/appdata/owi2plex/_config':'/config':'rw' -v '/mnt/user/appdata/owi2plex/':'/owi2plex':'rw' 'alturismo/owi2plex'
+docker run -d \
+  --name=owi2plex \
+  --net=bridge \
+  --log-opt max-size=10m \
+  --log-opt max-file=3 \
+  -e TZ="Europe/Berlin" \
+  -v /mnt/user/appdata/owi2plex/_config:/config:rw \
+  -v /mnt/user/appdata/owi2plex/:/owi2plex:rw \
+  alturismo/owi2plex
+```
 
 to test the cronjob functions \
 docker exec -it "dockername" ./config/cronjob.sh

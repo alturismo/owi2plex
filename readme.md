@@ -10,6 +10,7 @@ Container Path: /owi2plex <> /mnt/user/appdata/owi2plex/ \
 Container Path: /TVH <> /mnt/user/appdata/tvheadend/data/ << not needed if no TVHeadend is used \
 while /mnt/user/appdata/ should fit to your system path ...
 
+```
 docker run -d \
   --name=owi2plex \
   --net=bridge \
